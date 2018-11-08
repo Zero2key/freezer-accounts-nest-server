@@ -1,11 +1,13 @@
 {
   "name": "freezer-accounts-nest-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "freezer-accounts-nest-server",
   "author": "Zero2key",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "build": "tsc",
+    "before-start": "ts-node src/before-start.ts",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "start:dev": "nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",

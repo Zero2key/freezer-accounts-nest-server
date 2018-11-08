@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { MaterielTypesModule } from './materiel-types/materiel-types.module';
 
 @Module({
-  imports: [],
+  imports: [TypeOrmModule.forRoot(), MaterielTypesModule],
   controllers: [AppController],
   providers: [AppService],
 })
