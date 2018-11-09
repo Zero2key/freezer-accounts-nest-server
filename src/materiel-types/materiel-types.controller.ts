@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { MaterielTypesService } from './materiel-types.service';
 import { ApiUseTags, ApiOkResponse } from '@nestjs/swagger';
-import { swaggerStringify } from '@/utils';
+import { swaggerStringify } from '../utils';
 
 @ApiUseTags('MaterielTypes')
 @Controller('materiel-types')
@@ -16,14 +16,6 @@ export class MaterielTypesController {
         {
           code: 'DOOR',
           label: '门',
-        },
-        {
-          code: 'BOARD',
-          label: '板',
-        },
-        {
-          code: 'PARTS',
-          label: '配件',
         },
       ],
     }),
