@@ -4,6 +4,9 @@ import { MaterielTypesService } from './materiel-types.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MaterielType } from './materiel-types.entity';
 
+/**
+ * 物料模块
+ */
 @Module({
   imports: [TypeOrmModule.forFeature([MaterielType])],
   controllers: [MaterielTypesController],

@@ -10,7 +10,10 @@ export class MaterielTypesService {
     private readonly materielTypeRepository: Repository<MaterielType>,
   ) {}
 
-  async findAll(): Promise<MaterielType[]> {
-    return await this.materielTypeRepository.find();
+  /**
+   * 查询物料列表
+   */
+  findAll(): Promise<MaterielType[]> {
+    return this.materielTypeRepository.find();
   }
 }

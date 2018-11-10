@@ -8,6 +8,9 @@ import { swaggerStringify } from '../utils';
 export class MaterielTypesController {
   constructor(private readonly materielTypesService: MaterielTypesService) {}
 
+  /**
+   * 获取物料列表
+   */
   @Get()
   @ApiOkResponse({
     description: swaggerStringify({
