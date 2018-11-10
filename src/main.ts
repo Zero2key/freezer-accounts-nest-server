@@ -2,11 +2,15 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { GlobalExceptionFilter } from './global-exception.filter';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { LoggerService } from './logger/logger.service';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: new LoggerService(),
+  });
   app.setGlobalPrefix('api');
-  app.useGlobalFilters(new GlobalExceptionFilter());
+  app.useLogger(app.get(LoggerService));
+  app.useGlobalFilters(new GlobalExceptionFilter(app.get(LoggerService)));
   const options = new DocumentBuilder()
     .setTitle('Freezer Accounts Example')
     .setDescription('The freezer accounts API description')
