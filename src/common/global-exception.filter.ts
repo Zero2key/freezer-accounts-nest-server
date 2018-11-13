@@ -1,13 +1,9 @@
 import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
-import { LoggerService } from './logger/logger.service';
+import { LoggerService } from '../logger/logger.service';
 
 @Catch()
 export class GlobalExceptionFilter implements ExceptionFilter {
-  logger: LoggerService;
-
-  constructor(logger: LoggerService) {
-    this.logger = logger;
-  }
+  constructor(readonly logger: LoggerService) {}
 
   catch(exception: Error, host: ArgumentsHost) {
     const ctx = host.switchToHttp();

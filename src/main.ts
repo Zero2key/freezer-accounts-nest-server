@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { GlobalExceptionFilter } from './global-exception.filter';
+import { GlobalExceptionFilter } from './common/global-exception.filter';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { LoggerService } from './logger/logger.service';
 
@@ -8,6 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     logger: new LoggerService(),
   });
+  app.enableCors();
   app.setGlobalPrefix('api');
   app.useLogger(app.get(LoggerService));
   app.useGlobalFilters(new GlobalExceptionFilter(app.get(LoggerService)));
