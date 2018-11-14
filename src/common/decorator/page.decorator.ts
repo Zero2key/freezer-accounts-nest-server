@@ -1,5 +1,5 @@
 import { createParamDecorator } from '@nestjs/common';
-import { PageParams } from './interface';
+import { PageParams } from '../interface';
 
 export const Page = createParamDecorator(
   (data = 10, req): PageParams => {

@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { GlobalExceptionFilter } from './common/global-exception.filter';
+import { GlobalExceptionFilter } from './common/filter/global-exception.filter';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { LoggerService } from './logger/logger.service';
 
