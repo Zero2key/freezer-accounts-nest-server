@@ -1,17 +1,20 @@
 import { Controller, Get } from '@nestjs/common';
 import { MaterielTypesService } from './materiel-types.service';
-import { ApiUseTags, ApiOkResponse } from '@nestjs/swagger';
+import { ApiUseTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
 import { swaggerStringify } from '../utils';
 
-@ApiUseTags('MaterielTypes')
+@ApiUseTags('MaterielTypes 物料类型')
 @Controller('materiel-types')
 export class MaterielTypesController {
   constructor(private readonly materielTypesService: MaterielTypesService) {}
 
   /**
-   * 获取物料列表
+   * 获取物料类型列表
    */
-  @Get()
+  @ApiOperation({
+    title: '物料类型列表',
+    description: '订单物料所用的类型',
+  })
   @ApiOkResponse({
     description: swaggerStringify({
       code: 1,
@@ -23,6 +26,7 @@ export class MaterielTypesController {
       ],
     }),
   })
+  @Get()
   async list() {
     return await this.materielTypesService.findAll();
   }
