@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { MaterielTypesService } from './materiel-types.service';
+import { MaterielTypeListResp } from './materiel-types.dto';
 import { ApiUseTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
-import { swaggerStringify } from '../utils';
 
 @ApiUseTags('MaterielTypes 物料类型')
 @Controller('materiel-types')
@@ -16,15 +16,8 @@ export class MaterielTypesController {
     description: '订单物料所用的类型',
   })
   @ApiOkResponse({
-    description: swaggerStringify({
-      code: 1,
-      data: [
-        {
-          code: 'DOOR',
-          label: '门',
-        },
-      ],
-    }),
+    description: '物料类型列表',
+    type: MaterielTypeListResp,
   })
   @Get()
   async list() {
