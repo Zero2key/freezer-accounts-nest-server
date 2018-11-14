@@ -24,9 +24,6 @@ export class MaterielTypesController {
     }),
   })
   async list() {
-    return {
-      code: 1,
-      data: await this.materielTypesService.findAll(),
-    };
+    return await this.materielTypesService.findAll();
   }
 }

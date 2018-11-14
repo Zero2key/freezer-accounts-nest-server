@@ -39,10 +39,7 @@ describe('MaterielTypes Controller', () => {
         },
       ];
       jest.spyOn(service, 'findAll').mockImplementation(() => materielTypes);
-      expect(await controller.list()).toEqual({
-        code: 1,
-        data: materielTypes,
-      });
+      expect(await controller.list()).toEqual(materielTypes);
     });
   });
 });
