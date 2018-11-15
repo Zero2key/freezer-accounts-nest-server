@@ -12,7 +12,11 @@ const logger = createLogger({
 
 @Injectable()
 export class LoggerService extends Logger {
-  log(message: any, context?: string) {
+  constructor() {
+    super('App', true);
+  }
+
+  log(message: any, context: string = 'App') {
     const msg =
       message && typeof message === 'object'
         ? JSON.stringify(message, null, 2)
@@ -23,7 +27,7 @@ export class LoggerService extends Logger {
     logger.info(log);
     super.log(message, context);
   }
-  warn(message: any, context?: string) {
+  warn(message: any, context: string = 'App') {
     const msg =
       message && typeof message === 'object'
         ? JSON.stringify(message, null, 2)
@@ -34,7 +38,7 @@ export class LoggerService extends Logger {
     logger.warn(log);
     super.warn(message, context);
   }
-  error(message: any, trace?: string, context?: string) {
+  error(message: any, trace?: string, context: string = 'App') {
     const msg =
       message && typeof message === 'object'
         ? JSON.stringify(message, null, 2)
