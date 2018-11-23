@@ -33,7 +33,7 @@ export class CustomersService {
 
   /**
    * 新建客户
-   * @param CustomerDto 新建客户Dto
+   * @param createCustomerDto 新建客户Dto
    */
   save(createCustomerDto: CustomerDto): Promise<Customer> {
     return this.customerRepository.save(createCustomerDto);
