@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Order } from '../orders/orders.entity';
 import { ApiModelProperty } from '@nestjs/swagger';
 
 @Entity()
@@ -23,4 +24,7 @@ export class Customer {
   })
   @Column({ length: 64 })
   companyName: string;
+
+  @OneToMany(type => Order, order => order.customer)
+  orders?: Pick<Order, 'id'>[];
 }

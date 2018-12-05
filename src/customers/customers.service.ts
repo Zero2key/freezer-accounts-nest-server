@@ -33,19 +33,19 @@ export class CustomersService {
 
   /**
    * 新建客户
-   * @param createCustomerDto 新建客户Dto
+   * @param customerDto 新建客户Dto
    */
-  save(createCustomerDto: CustomerDto): Promise<Customer> {
-    return this.customerRepository.save(createCustomerDto);
+  save(customerDto: CustomerDto): Promise<Customer> {
+    return this.customerRepository.save(customerDto);
   }
 
   /**
    * 更新客户
    * @param id 客户id
-   * @param updateCustomerDto 更新客户Dto
+   * @param customerDto 更新客户Dto
    */
-  update(id: string, updateCustomerDto: CustomerDto) {
-    return this.customerRepository.update(id, updateCustomerDto);
+  update(id: string, customerDto: CustomerDto) {
+    return this.customerRepository.update(id, customerDto);
   }
 
   /**

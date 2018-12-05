@@ -7,6 +7,7 @@ import { ResponseInterceptor } from './common/interceptor/response.interceptor';
 import { MaterielTypesModule } from './materiel-types/materiel-types.module';
 import { LoggerModule } from './logger/logger.module';
 import { CustomersModule } from './customers/customers.module';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { CustomersModule } from './customers/customers.module';
     MaterielTypesModule,
     LoggerModule,
     CustomersModule,
+    OrdersModule,
   ],
   controllers: [AppController],
   providers: [

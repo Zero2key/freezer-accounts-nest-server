@@ -65,7 +65,7 @@ export class CustomersController {
 
   /**
    * 新建客户
-   * @param {CustomerDto} createCustomerDto
+   * @param {CustomerDto} customerDto
    */
   @ApiOperation({
     title: '新建客户',
@@ -74,8 +74,8 @@ export class CustomersController {
     type: CustomerSaveResp,
   })
   @Post()
-  async save(@Body() createCustomerDto: CustomerDto) {
-    return await this.customersService.save(createCustomerDto);
+  async save(@Body() customerDto: CustomerDto) {
+    return await this.customersService.save(customerDto);
   }
 
   /**
@@ -96,17 +96,14 @@ export class CustomersController {
   /**
    * 更新客户信息
    * @param {string} id
-   * @param {CustomerDto} createCustomerDto
+   * @param {CustomerDto} customerDto
    */
   @ApiOperation({
     title: '更新客户信息',
   })
   @Put(':id')
-  async update(
-    @Param('id') id: string,
-    @Body() createCustomerDto: CustomerDto,
-  ) {
-    await this.customersService.update(id, createCustomerDto);
+  async update(@Param('id') id: string, @Body() customerDto: CustomerDto) {
+    await this.customersService.update(id, customerDto);
     return;
   }
 
